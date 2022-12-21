@@ -1,0 +1,9 @@
+# add your settings here (overriding the defaults)
+
+offline: true
+
+neo4j_delimiter: "\t"
+neo4j_array_delimiter: "|"
+
+debug: false
+clear_cache: false
