@@ -2,6 +2,9 @@ import random
 import string
 from enum import Enum, auto
 from itertools import chain
+from biocypher._logger import logger
+
+logger.debug(f"Loading module {__name__}.")
 
 
 class ExampleAdapterNodeType(Enum):
@@ -86,6 +89,9 @@ class ExampleAdapter:
         Returns a generator of node tuples for node types specified in the
         adapter constructor.
         """
+
+        logger.info("Generating nodes.")
+
         self.nodes = []
 
         if ExampleAdapterNodeType.PROTEIN in self.node_types:
@@ -108,6 +114,9 @@ class ExampleAdapter:
         Returns a generator of edge tuples for edge types specified in the
         adapter constructor.
         """
+
+        logger.info("Generating edges.")
+
         if not self.nodes:
             raise ValueError("No nodes found. Please run get_nodes() first.")
 
