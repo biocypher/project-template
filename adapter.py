@@ -70,7 +70,10 @@ class ExampleAdapter:
     knowledge graph.
 
     Args:
-        fields (list): List of fields to include in the node.
+        node_types: List of node types to include in the result.
+        node_fields: List of node fields to include in the result.
+        edge_types: List of edge types to include in the result.
+        edge_fields: List of edge fields to include in the result.
     """
 
     def __init__(
@@ -113,6 +116,9 @@ class ExampleAdapter:
         """
         Returns a generator of edge tuples for edge types specified in the
         adapter constructor.
+
+        Args:
+            probability: Probability of generating an edge between two nodes.
         """
 
         logger.info("Generating edges.")
