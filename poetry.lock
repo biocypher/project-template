@@ -85,7 +85,7 @@ yapf = "^0.32.0"
 type = "git"
 url = "https://github.com/saezlab/BioCypher.git"
 reference = "main"
-resolved_reference = "38bea7858aaa3d08c23d802edc4b5d3e5048d847"
+resolved_reference = "6f123568878b2159572f8e1053f9bec539f79a83"
 
 [[package]]
 name = "black"
