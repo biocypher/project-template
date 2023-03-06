@@ -85,7 +85,7 @@ yapf = "^0.32.0"
 type = "git"
 url = "https://github.com/saezlab/BioCypher.git"
 reference = "main"
-resolved_reference = "6f123568878b2159572f8e1053f9bec539f79a83"
+resolved_reference = "10761c5dae254c5a1d5578bb3cd5aac6fdeade31"
 
 [[package]]
 name = "black"
@@ -242,7 +242,7 @@ test-no-images = ["pytest"]
 
 [[package]]
 name = "curies"
-version = "0.4.4"
+version = "0.4.5"
 description = "Idiomatic conversion between URIs and compact URIs (CURIEs)."
 category = "main"
 optional = false
@@ -1968,8 +1968,8 @@ contourpy = [
     {file = "contourpy-1.0.7.tar.gz", hash = "sha256:d8165a088d31798b59e91117d1f5fc3df8168d8b48c4acc10fc0df0d0bdbcc5e"},
 ]
 curies = [
-    {file = "curies-0.4.4-py3-none-any.whl", hash = "sha256:477d990082ccb096c7d0ee45999b0678c85e6840f7120af60a77367722ffe6e5"},
-    {file = "curies-0.4.4.tar.gz", hash = "sha256:169f53a47cdc55bf57e42d2c11e83a57340bc519a026180e83c99cef09bf0298"},
+    {file = "curies-0.4.5-py3-none-any.whl", hash = "sha256:73281f6616ec47c8d46d842def7a2021416c9ac10f580f9116125abf4bd2f943"},
+    {file = "curies-0.4.5.tar.gz", hash = "sha256:c01626183b520db1b4af6a1fd41ee6d02462fea4ce54d8c5a528e5782268589c"},
 ]
 cycler = [
     {file = "cycler-0.11.0-py3-none-any.whl", hash = "sha256:3a27e95f763a428a739d2add979fa7494c912a32c17c4c38c4d5f082cad165a3"},

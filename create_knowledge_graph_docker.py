@@ -12,10 +12,13 @@ from adapter import (
 # settings via parameters below
 driver = biocypher.Driver(
     user_schema_config_path="config/schema_config.yaml",
+    db_name="docker",
     output_directory="biocypher-out/docker",
-    import_call_prefix="",  # Neo4j admin import option
+    # import_call_bin_prefix="",  # Neo4j admin import option
+    import_call_file_prefix="import/docker/",  # Neo4j admin import option
     skip_bad_relationships=True,  # Neo4j admin import option
     skip_duplicate_nodes=True,  # Neo4j admin import option
+    wipe=True,  # Neo4j admin import option
 )
 
 # Take a look at the ontology structure of the KG according to the schema
