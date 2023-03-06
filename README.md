@@ -29,6 +29,7 @@ python create_knowledge_graph.py
 ```
 
 ## Usage
+
 The above command will create a knowledge graph from the example data included
 in this repository (borrowed from the [BioCypher
 tutorial](https://biocypher.org/tutorial.html)). To do that, it uses the
@@ -52,3 +53,12 @@ separators used, and other options. It is not strictly necessary; you can pass
 settings to the driver at instantiation (in `create_knowledge_graph.py`), or
 just use the default settings.
 
+## Docker
+
+This repo also contains a `docker compose` workflow to create the example
+database using BioCypher and load it into a dockerised Neo4j instance
+automatically. To run it, simply execute `docker compose build` followed
+by `docker compose up` in the root directory of the project. This will start
+up a single docker container with a Neo4j instance that contains the knowledge
+graph built by BioCypher as the DB `docker`, which you can connect to at
+localhost:7474.
