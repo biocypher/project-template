@@ -1,7 +1,7 @@
 # BioCypher project template
 A quick way to set up a BioCypher-driven knowledge graph pipeline.
 
-## ⚙️ Installation
+## ⚙️ Installation (local, for docker see below)
 1. Clone this repository and rename to your project name.
 ```{bash}
 git clone https://github.com/saezlab/biocypher-project-template.git
