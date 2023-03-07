@@ -57,8 +57,10 @@ just use the default settings.
 
 This repo also contains a `docker compose` workflow to create the example
 database using BioCypher and load it into a dockerised Neo4j instance
-automatically. To run it, simply execute `docker compose build` followed
-by `docker compose up` in the root directory of the project. This will start
-up a single docker container with a Neo4j instance that contains the knowledge
-graph built by BioCypher as the DB `docker`, which you can connect to at
-localhost:7474.
+automatically. To run it, simply execute `docker compose up -d` in the root 
+directory of the project. This will start up a single (detached) docker
+container with a Neo4j instance that contains the knowledge graph built by
+BioCypher as the DB `docker`, which you can connect to and browse at 
+localhost:7474 (don't forget to switch the DB to `docker` instead of the 
+standard `neo4j`). Authentication is set to `neo4j/neo4jpassword` by default
+and can be modified in the `docker_variables.env` file.
