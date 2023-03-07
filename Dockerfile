@@ -21,21 +21,10 @@ COPY pyproject.toml ./
 RUN poetry config virtualenvs.create false && poetry install
 COPY . ./
 
-RUN python3 create_knowledge_graph_docker.py  
-# RUN python3 scripts/update_import_script.py "/usr/app/biocypher-out/test/neo4j-admin-import-call.sh" "/usr/app/biocypher-out/" "neo4j-admin"
+RUN python3 create_knowledge_graph_docker.py
 
 
 FROM neo4j:4.4-enterprise as import-stage
-
 COPY --from=setup-stage /usr/app/biocypher-out/ /var/lib/neo4j/import/
-RUN chmod +x /var/lib/neo4j/import/docker/neo4j-admin-import-call.sh
-RUN import/docker/neo4j-admin-import-call.sh
-COPY docker/docker-neo4j-entrypoint_biocypher.sh /startup/docker-entrypoint.sh 
-
-COPY docker/create_table.sh ./
-# RUN chmod +x create_table.sh
-# RUN ./create_table.sh
-# RUN echo "bash /var/lib/neo4j/import/docker/neo4j-admin-import-call.sh && bash create_table.sh &" > import/import.sh && chmod +x /startup/docker-entrypoint.sh
-RUN echo "bash create_table.sh &" > import/import.sh && chmod +x /startup/docker-entrypoint.sh
-
-CMD ["neo4j"]
+COPY docker/* ./
+RUN cat biocypher_entrypoint_patch.sh | cat - /startup/docker-entrypoint.sh > docker-entrypoint.sh && mv docker-entrypoint.sh /startup/ && chmod +x /startup/docker-entrypoint.sh
