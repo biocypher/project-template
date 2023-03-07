@@ -1,7 +1,7 @@
 # BioCypher project template
 A quick way to set up a BioCypher-driven knowledge graph pipeline.
 
-## Installation
+## ⚙️ Installation
 1. Clone this repository and rename to your project name.
 ```{bash}
 git clone https://github.com/saezlab/biocypher-project-template.git
@@ -28,7 +28,7 @@ poetry shell
 python create_knowledge_graph.py
 ```
 
-## Usage
+## 🛠 Usage
 
 The above command will create a knowledge graph from the example data included
 in this repository (borrowed from the [BioCypher
@@ -53,7 +53,7 @@ separators used, and other options. It is not strictly necessary; you can pass
 settings to the driver at instantiation (in `create_knowledge_graph.py`), or
 just use the default settings.
 
-## Docker
+## 🐳 Docker
 
 This repo also contains a `docker compose` workflow to create the example
 database using BioCypher and load it into a dockerised Neo4j instance
