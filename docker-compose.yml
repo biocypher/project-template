@@ -8,4 +8,9 @@ services:
     ports:
       - 7474:7474
       - 7687:7687
+#    volumes:
+#      - biocypher_neo4j_volume:/data
  #   restart: always
+
+#volumes:
+#  biocypher_neo4j_volume:
