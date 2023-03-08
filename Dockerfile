@@ -4,7 +4,6 @@ WORKDIR /usr/app/
 COPY pyproject.toml ./
 RUN poetry config virtualenvs.create false && poetry install
 COPY . ./
-
 RUN python3 create_knowledge_graph_docker.py
 
 FROM neo4j:4.4-enterprise as deploy-stage
