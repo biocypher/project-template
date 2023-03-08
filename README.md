@@ -1,7 +1,7 @@
 # BioCypher project template
 A quick way to set up a BioCypher-driven knowledge graph pipeline.
 
-## Installation
+## ⚙️ Installation (local, for docker see below)
 1. Clone this repository and rename to your project name.
 ```{bash}
 git clone https://github.com/saezlab/biocypher-project-template.git
@@ -28,7 +28,7 @@ poetry shell
 python create_knowledge_graph.py
 ```
 
-## Usage
+## 🛠 Usage
 
 The above command will create a knowledge graph from the example data included
 in this repository (borrowed from the [BioCypher
@@ -53,12 +53,14 @@ separators used, and other options. It is not strictly necessary; you can pass
 settings to the driver at instantiation (in `create_knowledge_graph.py`), or
 just use the default settings.
 
-## Docker
+## 🐳 Docker
 
 This repo also contains a `docker compose` workflow to create the example
 database using BioCypher and load it into a dockerised Neo4j instance
-automatically. To run it, simply execute `docker compose build` followed
-by `docker compose up` in the root directory of the project. This will start
-up a single docker container with a Neo4j instance that contains the knowledge
-graph built by BioCypher as the DB `docker`, which you can connect to at
-localhost:7474.
+automatically. To run it, simply execute `docker compose up -d` in the root 
+directory of the project. This will start up a single (detached) docker
+container with a Neo4j instance that contains the knowledge graph built by
+BioCypher as the DB `docker`, which you can connect to and browse at 
+localhost:7474 (don't forget to switch the DB to `docker` instead of the 
+standard `neo4j`). Authentication is set to `neo4j/neo4jpassword` by default
+and can be modified in the `docker_variables.env` file.
