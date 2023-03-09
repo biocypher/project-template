@@ -1,7 +1,7 @@
 FROM andimajore/biocyper_base:python3.10 as setup-stage
 
 WORKDIR /usr/app/
-COPY pyproject.toml ./
+COPY pyproject.toml poetry.lock ./
 RUN poetry config virtualenvs.create false && poetry install
 COPY . ./
 RUN python3 create_knowledge_graph_docker.py

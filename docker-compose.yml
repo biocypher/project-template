@@ -3,8 +3,9 @@ version: '3.3'
 services:
   neo4j:
     build: .
+    container_name: biocypher-project-template-container
     env_file:
-      - docker_variables.env
+      - docker-variables.env
     ports:
       - 7474:7474
       - 7687:7687
