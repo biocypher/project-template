@@ -1,4 +1,4 @@
-import biocypher
+from biocypher import BioCypher
 from adapter import (
     ExampleAdapter,
     ExampleAdapterNodeType,
@@ -7,17 +7,15 @@ from adapter import (
     ExampleAdapterDiseaseField,
 )
 
-# Instantiate the BioCypher driver
-# You can use `config/biocypher_config.yaml` to configure the driver or supply
-# settings via parameters below
-driver = biocypher.Driver(
-    user_schema_config_path="config/schema_config.yaml",
-    skip_bad_relationships=True,  # Neo4j admin import option
-    skip_duplicate_nodes=True,  # Neo4j admin import option
+# Instantiate the BioCypher interface
+# You can use `config/biocypher_config.yaml` to configure the framework or
+# supply settings via parameters below
+bc = BioCypher(
+    schema_config_path="config/schema_config.yaml",
 )
 
 # Take a look at the ontology structure of the KG according to the schema
-driver.show_ontology_structure()
+bc.show_ontology_structure()
 
 # Choose node types to include in the knowledge graph.
 # These are defined in the adapter (`adapter.py`).
@@ -55,12 +53,12 @@ adapter = ExampleAdapter(
 
 
 # Create a knowledge graph from the adapter
-driver.write_nodes(adapter.get_nodes())
-driver.write_edges(adapter.get_edges())
+bc.write_nodes(adapter.get_nodes())
+bc.write_edges(adapter.get_edges())
 
 # Write admin import statement
-driver.write_import_call()
+bc.write_import_call()
 
 # Check output
-driver.log_duplicates()
-driver.log_missing_bl_types()
+bc.log_duplicates()
+bc.log_missing_bl_types()
