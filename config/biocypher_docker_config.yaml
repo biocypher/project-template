@@ -9,8 +9,8 @@ biocypher:
 neo4j:
   database_name: docker
   wipe: true
-  delimiter: "\t"
-  array_delimiter: "|"
+  delimiter: '\t'
+  array_delimiter: '|'
   skip_duplicate_nodes: true
   skip_bad_relationships: true
   import_call_file_prefix: import/docker/
