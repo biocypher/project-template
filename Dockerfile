@@ -5,7 +5,7 @@ ARG BIOCYPHER_CONFIG=config/biocypher_docker_config.yaml
 ENV USED_BIOCYPHER_CONFIG=$BIOCYPHER_CONFIG
 
 WORKDIR /usr/app/
-COPY pyproject.toml ./
+COPY pyproject.toml poetry.lock ./
 RUN poetry config virtualenvs.create false && poetry install
 COPY . ./
 RUN cp ${USED_BIOCYPHER_CONFIG} config/biocypher_config.yaml
