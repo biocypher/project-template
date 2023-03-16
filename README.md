@@ -64,11 +64,17 @@ The project template is structured as follows:
 ```
 
 The main components of the BioCypher pipeline are the
-`create_knowledge_graph.py`, the configuration in the config directory, and the
-adapter module in the `template_package` directory. The latter can be used to
-publish your own adapters (rename the `template_package` directory to your
+`create_knowledge_graph.py`, the configuration in the `config` directory, and
+the adapter module in the `template_package` directory. The latter can be used
+to publish your own adapters (rename the `template_package` directory to your
 package name and replace the example adapter with your own). You can also use
 other adapters from anywhere on GitHub, PyPI, or your local machine.
+
+**The BioCypher ecosystem relies on the collection of adapters (planned, in
+development, or already available) to inform the community about the available
+data sources and to facilitate the creation of knowledge graphs. If you think
+your adapter could be useful for others, please create an issue for it on the
+[main BioCypher repository](https://github.com/saezlab/BioCypher/issues).**
 
 In addition, the docker setup is provided to run the pipeline (from the same
 python script) in a docker container, and subsequently load the knowledge graph
