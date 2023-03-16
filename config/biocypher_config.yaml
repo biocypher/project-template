@@ -3,6 +3,7 @@
 biocypher:
   offline: true
   debug: false
+  schema_config_path: config/schema_config.yaml
 
 neo4j:
   delimiter: '\t'
