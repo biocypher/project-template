@@ -1,5 +1,5 @@
 from biocypher import BioCypher
-from adapter import (
+from template_package.adapters.example_adapter import (
     ExampleAdapter,
     ExampleAdapterNodeType,
     ExampleAdapterEdgeType,
