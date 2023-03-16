@@ -66,9 +66,8 @@ The project template is structured as follows:
 The main components of the BioCypher pipeline are the
 `create_knowledge_graph.py`, the configuration in the `config` directory, and
 the adapter module in the `template_package` directory. The latter can be used
-to publish your own adapters (rename the `template_package` directory to your
-package name and replace the example adapter with your own). You can also use
-other adapters from anywhere on GitHub, PyPI, or your local machine.
+to publish your own adapters (see below). You can also use other adapters from
+anywhere on GitHub, PyPI, or your local machine.
 
 **The BioCypher ecosystem relies on the collection of adapters (planned, in
 development, or already available) to inform the community about the available
@@ -114,6 +113,25 @@ tutorial](https://biocypher.org/tutorial-ontology.html)).
 directory) that defines some BioCypher parameters, such as the mode, the 
 separators used, and other options. More on its use can be found in the
 [Documentation](https://biocypher.org/installation.html#configuration).
+
+### Publishing your own adapters
+After adding your adapter(s) to the `adapters` directory, you may want to
+publish them for easier reuse. To create a package to distribute your own
+adapter(s), we recommend using [Poetry](https://python-poetry.org/). Poetry,
+after setup, allows you to publish your package to PyPI using few simple
+commands. To set up your package, rename the `template_package` directory to
+your desired package name and update the `pyproject.toml` file accordingly. Most
+importantly, update the `name`,`author`, and `version` fields. You can also add
+a `description` and a `license`.  Then, you can publish your package to PyPI
+using the following commands:
+
+```{bash}
+poetry build
+poetry publish
+```
+
+If you don't want to publish your package to PyPI, you can also install it from
+GitHub using the respective functions of poetry or pip.
 
 ## 🐳 Docker
 
