@@ -11,7 +11,7 @@ from adapter import (
 # You can use `config/biocypher_config.yaml` to configure the framework or
 # supply settings via parameters below
 bc = BioCypher(
-    schema_config_path="config/schema_config.yaml",
+    biocypher_config_path="config/biocypher_config.yaml",
 )
 
 # Take a look at the ontology structure of the KG according to the schema
