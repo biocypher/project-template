@@ -4,8 +4,8 @@ A quick way to set up a BioCypher-driven knowledge graph pipeline.
 ## ⚙️ Installation (local, for docker see below)
 1. Clone this repository and rename to your project name.
 ```{bash}
-git clone https://github.com/saezlab/biocypher-project-template.git
-mv biocypher-project-template my-project
+git clone https://github.com/biocypher/project-template.git
+mv project-template my-project
 cd my-project
 ```
 2. Make the repository your own.
@@ -73,7 +73,7 @@ anywhere on GitHub, PyPI, or your local machine.
 development, or already available) to inform the community about the available
 data sources and to facilitate the creation of knowledge graphs. If you think
 your adapter could be useful for others, please create an issue for it on the
-[main BioCypher repository](https://github.com/saezlab/BioCypher/issues).**
+[main BioCypher repository](https://github.com/biocypher/biocypher/issues).**
 
 In addition, the docker setup is provided to run the pipeline (from the same
 python script) in a docker container, and subsequently load the knowledge graph
