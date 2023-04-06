@@ -1,6 +1,11 @@
 # BioCypher project template
 A quick way to set up a BioCypher-driven knowledge graph pipeline.
 
+## Using the GitHub Template functionality
+You can use this template in GitHub directly. Just select 
+`biocypher/project-template` as your template when creating a new repository
+on GitHub.
+
 ## ⚙️ Installation (local, for docker see below)
 1. Clone this repository and rename to your project name.
 ```{bash}
