@@ -59,6 +59,5 @@ bc.write_edges(adapter.get_edges())
 # Write admin import statement
 bc.write_import_call()
 
-# Check output
-bc.log_duplicates()
-bc.log_missing_bl_types()
+# Print summary
+bc.summary()

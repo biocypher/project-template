@@ -2,6 +2,7 @@ import random
 import string
 from enum import Enum, auto
 from itertools import chain
+from typing import Optional
 from biocypher._logger import logger
 
 logger.debug(f"Loading module {__name__}.")
@@ -78,10 +79,10 @@ class ExampleAdapter:
 
     def __init__(
         self,
-        node_types: str = None,
-        node_fields: str = None,
-        edge_types: str = None,
-        edge_fields: str = None,
+        node_types: Optional[list] = None,
+        node_fields: Optional[list] = None,
+        edge_types: Optional[list] = None,
+        edge_fields: Optional[list] = None,
     ):
         self._set_types_and_fields(
             node_types, node_fields, edge_types, edge_fields
