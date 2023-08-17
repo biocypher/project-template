@@ -84,9 +84,7 @@ class ExampleAdapter:
         edge_types: Optional[list] = None,
         edge_fields: Optional[list] = None,
     ):
-        self._set_types_and_fields(
-            node_types, node_fields, edge_types, edge_fields
-        )
+        self._set_types_and_fields(node_types, node_fields, edge_types, edge_fields)
 
     def get_nodes(self):
         """
@@ -99,16 +97,10 @@ class ExampleAdapter:
         self.nodes = []
 
         if ExampleAdapterNodeType.PROTEIN in self.node_types:
-            [
-                self.nodes.append(Protein(fields=self.node_fields))
-                for _ in range(100)
-            ]
+            [self.nodes.append(Protein(fields=self.node_fields)) for _ in range(100)]
 
         if ExampleAdapterNodeType.DISEASE in self.node_types:
-            [
-                self.nodes.append(Disease(fields=self.node_fields))
-                for _ in range(100)
-            ]
+            [self.nodes.append(Disease(fields=self.node_fields)) for _ in range(100)]
 
         for node in self.nodes:
             yield (node.get_id(), node.get_label(), node.get_properties())
@@ -131,7 +123,8 @@ class ExampleAdapter:
             if random.random() < probability:
                 other_node = random.choice(self.nodes)
 
-                # generate random relationship id by choosing upper or lower letters and integers, length 10, and joining them
+                # generate random relationship id by choosing upper or lower
+                # letters and integers, length 10, and joining them
                 relationship_id = "".join(
                     random.choice(string.ascii_letters + string.digits)
                     for _ in range(10)
@@ -143,17 +136,13 @@ class ExampleAdapter:
                     and ExampleAdapterEdgeType.PROTEIN_PROTEIN_INTERACTION
                     in self.edge_types
                 ):
-                    edge_type = (
-                        ExampleAdapterEdgeType.PROTEIN_PROTEIN_INTERACTION.value
-                    )
+                    edge_type = ExampleAdapterEdgeType.PROTEIN_PROTEIN_INTERACTION.value
                 elif (
                     isinstance(other_node, Disease)
                     and ExampleAdapterEdgeType.PROTEIN_DISEASE_ASSOCIATION
                     in self.edge_types
                 ):
-                    edge_type = (
-                        ExampleAdapterEdgeType.PROTEIN_DISEASE_ASSOCIATION.value
-                    )
+                    edge_type = ExampleAdapterEdgeType.PROTEIN_DISEASE_ASSOCIATION.value
                 else:
                     continue
 
@@ -162,7 +151,7 @@ class ExampleAdapter:
                     node.get_id(),
                     other_node.get_id(),
                     edge_type,
-                    {"example_proptery": "example_value"},
+                    {"example_property": "example_value"},
                 )
 
     def get_node_count(self):
@@ -171,9 +160,7 @@ class ExampleAdapter:
         """
         return len(list(self.get_nodes()))
 
-    def _set_types_and_fields(
-        self, node_types, node_fields, edge_types, edge_fields
-    ):
+    def _set_types_and_fields(self, node_types, node_fields, edge_types, edge_fields):
         if node_types:
             self.node_types = node_types
         else:
@@ -259,7 +246,6 @@ class Protein(Node):
             self.fields is not None
             and ExampleAdapterProteinField.SEQUENCE in self.fields
         ):
-
             # random int between 50 and 250
             l = random.randint(50, 250)
 
@@ -277,10 +263,7 @@ class Protein(Node):
             )
 
         ## taxon
-        if (
-            self.fields is not None
-            and ExampleAdapterProteinField.TAXON in self.fields
-        ):
+        if self.fields is not None and ExampleAdapterProteinField.TAXON in self.fields:
             properties["taxon"] = "9606"
 
         return properties
@@ -309,10 +292,7 @@ class Disease(Node):
         properties = {}
 
         ## random name
-        if (
-            self.fields is not None
-            and ExampleAdapterDiseaseField.NAME in self.fields
-        ):
+        if self.fields is not None and ExampleAdapterDiseaseField.NAME in self.fields:
             properties["name"] = " ".join(
                 [random.choice(string.ascii_lowercase) for _ in range(10)],
             )
