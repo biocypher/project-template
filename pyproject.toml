@@ -12,7 +12,12 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 biocypher = "^0.5.4"
+requests = "^2.31.0"
+treelib = "1.6.4"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 80
