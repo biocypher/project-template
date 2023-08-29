@@ -1,84 +1,21 @@
-clinical trial:
-    represented_as: node
-    input_label: study
-    properties:
-        brief_title: str
-        official_title: str
-        status: str
-        brief_summary: str
-        type: str
-        allocation: str
-        phases: str
-        model: str
-        primary_purpose: str
-        number_of_patients: str
-        eligibility_criteria: str
-        healthy_volunteers: bool
-        sex: str
-        minimum_age: str
-        maximum_age: str
-        standardised_ages: str[]
+# add your desired knowledge graph components here
 
-drug:
+protein:
     represented_as: node
-    input_label: drug
-    properties:
-        name: str
-        type: str
-        mapped_names: str[]
-        # mechanism of action: str
-        # target: str
-        # adverse event: str
-        # contraindication: str
-
-organisation:
-    is_a: administrative entity
-    represented_as: node
-    input_label: organisation
-
-outcome:
-    is_a: clinical entity
-    represented_as: node
-    input_label: outcome
-    properties:
-        primary: bool
-        description: str
-        timeframe: str
+    preferred_id: uniprot
+    label_in_input: uniprot_protein
 
 disease:
     represented_as: node
-    input_label: disease
+    preferred_id: doid
+    label_in_input: do_disease
+    
+protein interaction:
+    is_a: pairwise molecular interaction
+    represented_as: edge
+    label_in_input: protein_protein_interaction
 
-location:
-    synonym_for: geographic location
-    represented_as: node
-    input_label: location
-    properties:
-        country: str
-        state: str
-        city: str
-
-study to drug association:
+protein to disease association:
     is_a: association
     represented_as: edge
-    input_label: study_has_drug
-    source: study
-    target: drug
-    properties:
-        description: str
-        dose: str
-        run in period: str
-
-study to disease association:
-    is_a: association
-    represented_as: edge
-    input_label: study_has_disease
-    source: study
-    target: disease
-
-study to location association:
-    is_a: association
-    represented_as: edge
-    input_label: study_has_location
-    source: study
-    target: location
+    label_in_input: protein_disease_association

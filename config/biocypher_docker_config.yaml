@@ -11,7 +11,6 @@ neo4j:
   wipe: true
   delimiter: '\t'
   array_delimiter: '|'
-  quote_character: '"'
   skip_duplicate_nodes: true
   skip_bad_relationships: true
   import_call_file_prefix: /data/build2neo
