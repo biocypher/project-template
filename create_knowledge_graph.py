@@ -10,9 +10,7 @@ from template_package.adapters.example_adapter import (
 # Instantiate the BioCypher interface
 # You can use `config/biocypher_config.yaml` to configure the framework or
 # supply settings via parameters below
-bc = BioCypher(
-    biocypher_config_path="config/biocypher_config.yaml",
-)
+bc = BioCypher()
 
 # Choose node types to include in the knowledge graph.
 # These are defined in the adapter (`adapter.py`).
