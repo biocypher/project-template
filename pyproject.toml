@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "biocypher-project-template"
-version = "0.5.37"
+version = "0.5.43"
 description = "Template for creating a BioCypher-driven knowledge graph"
 authors = [
     "Sebastian Lobentanzer <sebastian.lobentanzer@gmail.com>",
@@ -11,7 +11,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-biocypher = "^0.5.37"
+biocypher = "^0.5.43"
 
 [build-system]
 requires = ["poetry-core"]
