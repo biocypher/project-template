@@ -1,6 +1,7 @@
 # BioCypher project template
 
-A quick way to set up a BioCypher-driven knowledge graph pipeline.
+A quick way to set up a BioCypher-driven knowledge graph pipeline. Please make
+sure to refer to the [Usage](#-usage) section for details on how it works.
 
 ## Using the GitHub Template functionality
 
