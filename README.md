@@ -1,12 +1,20 @@
 # BioCypher project template
+
 A quick way to set up a BioCypher-driven knowledge graph pipeline.
 
 ## Using the GitHub Template functionality
+
 You can use this template in GitHub directly. Just select 
 `biocypher/project-template` as your template when creating a new repository
 on GitHub.
 
 ## ⚙️ Installation (local, for docker see below)
+
+> [!NOTE]
+> These are manual installation instructions. If you created the repository
+> using the above GitHub template functionality, you don't need to do the
+> first two steps.
+
 1. Clone this repository and rename to your project name.
 ```{bash}
 git clone https://github.com/biocypher/project-template.git
@@ -32,7 +40,6 @@ poetry install
 poetry shell
 python create_knowledge_graph.py
 ```
-
 
 ## 🛠 Usage
 
@@ -120,6 +127,7 @@ separators used, and other options. More on its use can be found in the
 [Documentation](https://biocypher.org/installation.html#configuration).
 
 ### Publishing your own adapters
+
 After adding your adapter(s) to the `adapters` directory, you may want to
 publish them for easier reuse. To create a package to distribute your own
 adapter(s), we recommend using [Poetry](https://python-poetry.org/). Poetry,
@@ -137,6 +145,12 @@ poetry publish
 
 If you don't want to publish your package to PyPI, you can also install it from
 GitHub using the respective functions of poetry or pip.
+
+### Further reading / code
+
+If you want to see a second example of the workflow, check our
+[CollecTRI](https://github.com/biocypher/collectri) pipeline. Its README describes
+the process of data assessment and adapter creation in more detail.
 
 ## 🐳 Docker
 
