@@ -13,7 +13,7 @@ on GitHub.
 > [!NOTE]
 > These are manual installation instructions. If you created the repository
 > using the above GitHub template functionality, you don't need to do the
-> first two steps.
+> first two steps. Instead, just clone the repository you have created.
 
 1. Clone this repository and rename to your project name.
 ```{bash}
