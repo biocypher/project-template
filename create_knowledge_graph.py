@@ -64,6 +64,8 @@ bc.write_edges(adapter.get_edges())
 
 # Write admin import statement
 bc.write_import_call()
+# Write schema info to graph (important for BioChatter connectivity)
+bc.write_schema_info(as_node=True)
 
 # Print summary
 bc.summary()
