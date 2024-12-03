@@ -65,14 +65,18 @@ The project template is structured as follows:
 │   └── schema_config.yaml
 └── template_package
     └── adapters
-        └── example_adapter.py
+        └── template_adapter.py
 ```
 
 The main components of the BioCypher pipeline are the
-`create_knowledge_graph.py`, the configuration in the `config` directory, and
-the adapter module in the `template_package` directory. The latter can be used
+[create_knowledge_graph.py](create_knowledge_graph.py), the configuration in the
+[config](config/) directory, and the adapter module in the
+[template_package](template_package/adapters/) directory. The latter can be used
 to publish your own adapters (see below). You can also use other adapters from
 anywhere on GitHub, PyPI, or your local machine.
+
+For a simple, real-world example, see the [CollecTRI
+pipeline](https://github.com/biocypher/collectri).
 
 **The BioCypher ecosystem relies on the collection of adapters (planned, in
 development, or already available) to inform the community about the available
@@ -100,7 +104,7 @@ resources, there may already be an adapter available in the BioCypher package or
 in a separate repository. You can also write your own adapter, should none be
 available for your data.
 
-- `example_adapter.py` (in `template_package.adapters`): a module that defines
+- `template_adapter.py` (in `template_package.adapters`): a module that defines
 the adapter to the data source. In this case, it is a random generator script.
 If you want to create your own adapters, we recommend to use the example adapter
 as a blueprint and create one python file per data source, approproately named.

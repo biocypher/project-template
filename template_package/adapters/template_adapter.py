@@ -8,7 +8,7 @@ from biocypher._logger import logger
 logger.debug(f"Loading module {__name__}.")
 
 
-class ExampleAdapterNodeType(Enum):
+class TemplateAdapterNodeType(Enum):
     """
     Define types of nodes the adapter can provide.
     """
@@ -17,7 +17,7 @@ class ExampleAdapterNodeType(Enum):
     DISEASE = auto()
 
 
-class ExampleAdapterProteinField(Enum):
+class TemplateAdapterProteinField(Enum):
     """
     Define possible fields the adapter can provide for proteins.
     """
@@ -28,7 +28,7 @@ class ExampleAdapterProteinField(Enum):
     TAXON = "taxon"
 
 
-class ExampleAdapterDiseaseField(Enum):
+class TemplateAdapterDiseaseField(Enum):
     """
     Define possible fields the adapter can provide for diseases.
     """
@@ -38,7 +38,7 @@ class ExampleAdapterDiseaseField(Enum):
     DESCRIPTION = "description"
 
 
-class ExampleAdapterEdgeType(Enum):
+class TemplateAdapterEdgeType(Enum):
     """
     Enum for the types of the protein adapter.
     """
@@ -47,7 +47,7 @@ class ExampleAdapterEdgeType(Enum):
     PROTEIN_DISEASE_ASSOCIATION = "protein_disease_association"
 
 
-class ExampleAdapterProteinProteinEdgeField(Enum):
+class TemplateAdapterProteinProteinEdgeField(Enum):
     """
     Define possible fields the adapter can provide for protein-protein edges.
     """
@@ -56,7 +56,7 @@ class ExampleAdapterProteinProteinEdgeField(Enum):
     INTERACTION_SOURCE = "interaction_source"
 
 
-class ExampleAdapterProteinDiseaseEdgeField(Enum):
+class TemplateAdapterProteinDiseaseEdgeField(Enum):
     """
     Define possible fields the adapter can provide for protein-disease edges.
     """
@@ -65,7 +65,7 @@ class ExampleAdapterProteinDiseaseEdgeField(Enum):
     ASSOCIATION_SOURCE = "association_source"
 
 
-class ExampleAdapter:
+class TemplateAdapter:
     """
     Example BioCypher adapter. Generates nodes and edges for creating a
     knowledge graph.
@@ -105,10 +105,10 @@ class ExampleAdapter:
 
         self.nodes = []
 
-        if ExampleAdapterNodeType.PROTEIN in self.node_types:
+        if TemplateAdapterNodeType.PROTEIN in self.node_types:
             [self.nodes.append(Protein(fields=self.node_fields)) for _ in range(100)]
 
-        if ExampleAdapterNodeType.DISEASE in self.node_types:
+        if TemplateAdapterNodeType.DISEASE in self.node_types:
             [self.nodes.append(Disease(fields=self.node_fields)) for _ in range(100)]
 
         for node in self.nodes:
@@ -142,16 +142,16 @@ class ExampleAdapter:
                 # determine type of edge from other_node type
                 if (
                     isinstance(other_node, Protein)
-                    and ExampleAdapterEdgeType.PROTEIN_PROTEIN_INTERACTION
+                    and TemplateAdapterEdgeType.PROTEIN_PROTEIN_INTERACTION
                     in self.edge_types
                 ):
-                    edge_type = ExampleAdapterEdgeType.PROTEIN_PROTEIN_INTERACTION.value
+                    edge_type = TemplateAdapterEdgeType.PROTEIN_PROTEIN_INTERACTION.value
                 elif (
                     isinstance(other_node, Disease)
-                    and ExampleAdapterEdgeType.PROTEIN_DISEASE_ASSOCIATION
+                    and TemplateAdapterEdgeType.PROTEIN_DISEASE_ASSOCIATION
                     in self.edge_types
                 ):
-                    edge_type = ExampleAdapterEdgeType.PROTEIN_DISEASE_ASSOCIATION.value
+                    edge_type = TemplateAdapterEdgeType.PROTEIN_DISEASE_ASSOCIATION.value
                 else:
                     continue
 
@@ -173,7 +173,7 @@ class ExampleAdapter:
         if node_types:
             self.node_types = node_types
         else:
-            self.node_types = [type for type in ExampleAdapterNodeType]
+            self.node_types = [type for type in TemplateAdapterNodeType]
 
         if node_fields:
             self.node_fields = node_fields
@@ -181,15 +181,15 @@ class ExampleAdapter:
             self.node_fields = [
                 field
                 for field in chain(
-                    ExampleAdapterProteinField,
-                    ExampleAdapterDiseaseField,
+                    TemplateAdapterProteinField,
+                    TemplateAdapterDiseaseField,
                 )
             ]
 
         if edge_types:
             self.edge_types = edge_types
         else:
-            self.edge_types = [type for type in ExampleAdapterEdgeType]
+            self.edge_types = [type for type in TemplateAdapterEdgeType]
 
         if edge_fields:
             self.edge_fields = edge_fields
@@ -269,7 +269,7 @@ class Protein(Node):
         ## random amino acid sequence
         if (
             self.fields is not None
-            and ExampleAdapterProteinField.SEQUENCE in self.fields
+            and TemplateAdapterProteinField.SEQUENCE in self.fields
         ):
             # random int between 50 and 250
             sequence_length = random.randint(50, 250)
@@ -281,14 +281,14 @@ class Protein(Node):
         ## random description
         if (
             self.fields is not None
-            and ExampleAdapterProteinField.DESCRIPTION in self.fields
+            and TemplateAdapterProteinField.DESCRIPTION in self.fields
         ):
             properties["description"] = " ".join(
                 [random.choice(string.ascii_lowercase) for _ in range(10)],
             )
 
         ## taxon
-        if self.fields is not None and ExampleAdapterProteinField.TAXON in self.fields:
+        if self.fields is not None and TemplateAdapterProteinField.TAXON in self.fields:
             properties["taxon"] = "9606"
 
         return properties
@@ -317,7 +317,7 @@ class Disease(Node):
         properties = {}
 
         ## random name
-        if self.fields is not None and ExampleAdapterDiseaseField.NAME in self.fields:
+        if self.fields is not None and TemplateAdapterDiseaseField.NAME in self.fields:
             properties["name"] = " ".join(
                 [random.choice(string.ascii_lowercase) for _ in range(10)],
             )
@@ -325,7 +325,7 @@ class Disease(Node):
         ## random description
         if (
             self.fields is not None
-            and ExampleAdapterDiseaseField.DESCRIPTION in self.fields
+            and TemplateAdapterDiseaseField.DESCRIPTION in self.fields
         ):
             properties["description"] = " ".join(
                 [random.choice(string.ascii_lowercase) for _ in range(10)],
