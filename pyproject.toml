@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "biocypher-project-template"
+name = "template-package"
 version = "0.5.43"
 description = "Template for creating a BioCypher-driven knowledge graph"
 authors = [
