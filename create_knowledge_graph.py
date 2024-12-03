@@ -1,5 +1,5 @@
 from biocypher import BioCypher, FileDownload
-from template_package.adapters.example_adapter import (
+from template_package.adapters.template_adapter import (
     ExampleAdapter,
     ExampleAdapterNodeType,
     ExampleAdapterEdgeType,
