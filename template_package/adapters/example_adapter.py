@@ -85,6 +85,14 @@ class ExampleAdapter:
         edge_fields: Optional[list] = None,
     ):
         self._set_types_and_fields(node_types, node_fields, edge_types, edge_fields)
+        self._preprocess_data()
+    def _preprocess_data(self):
+        """
+        Preprocess data from an input source. Unused in this template, but can
+        be used to ingest data from a file or API and store in class attributes,
+        to be used later in `get_nodes()` and `get_edges()`.
+        """
+        pass
 
     def get_nodes(self):
         """
@@ -186,6 +194,22 @@ class ExampleAdapter:
             self.edge_fields = edge_fields
         else:
             self.edge_fields = [field for field in chain()]
+
+# -----------------------------------------------------------------------------
+# Randomly generated dummy data below
+# -----------------------------------------------------------------------------
+# The classes below are not part of the adapter and are only used for
+# demonstration purposes. Nodes and edges can be created from any source, and
+# using any process (dedicated classes, dataframes read in from CSVs, API
+# queries, etc.). The adapter developer only needs to implement the public  
+# methods `get_nodes()` and `get_edges()`, which return generators of tuples
+# representing nodes and edges.
+#
+# For instance, if you load data from a CSV file, you can use pandas to create
+# dataframes and then iterate over the rows to yield nodes. Typically, this is
+# done in a separate private method `_preprocess_data()`, which is called from
+# `__init__()` and takes care of the preprocessing.
+# -----------------------------------------------------------------------------
 
 
 class Node:
