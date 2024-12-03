@@ -20,8 +20,9 @@ resource = FileDownload(
     lifetime=7,  # seven days cache lifetime
 )
 paths = bc.download(resource)  # Downloads to '.cache' by default
-print(paths)
-# You can use the list of paths returned to read the resource into your adapter
+print(f"Downloaded files to {[path for path in paths]}")
+# You can use the list of paths returned to read the resource into your adapter.
+# As this is only a demo, we will not do that here.
 
 # Choose node types to include in the knowledge graph.
 # These are defined in the adapter (`adapter.py`).
