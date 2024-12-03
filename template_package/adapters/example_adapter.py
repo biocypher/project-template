@@ -86,6 +86,7 @@ class ExampleAdapter:
     ):
         self._set_types_and_fields(node_types, node_fields, edge_types, edge_fields)
         self._preprocess_data()
+
     def _preprocess_data(self):
         """
         Preprocess data from an input source. Unused in this template, but can
@@ -271,10 +272,10 @@ class Protein(Node):
             and ExampleAdapterProteinField.SEQUENCE in self.fields
         ):
             # random int between 50 and 250
-            l = random.randint(50, 250)
+            sequence_length = random.randint(50, 250)
 
             properties["sequence"] = "".join(
-                [random.choice("ACDEFGHIKLMNPQRSTVWY") for _ in range(l)],
+                [random.choice("ACDEFGHIKLMNPQRSTVWY") for _ in range(sequence_length)],
             )
 
         ## random description
