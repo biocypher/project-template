@@ -1,4 +1,4 @@
-from biocypher import BioCypher, Resource
+from biocypher import BioCypher, FileDownload
 from template_package.adapters.example_adapter import (
     ExampleAdapter,
     ExampleAdapterNodeType,
@@ -14,7 +14,7 @@ bc = BioCypher()
 
 # Download and cache resources (change the directory in the options if needed)
 urls = "https://file-examples.com/wp-content/storage/2017/02/file_example_CSV_5000.csv"
-resource = Resource(
+resource = FileDownload(
     name="Example resource",  # Name of the resource
     url_s=urls,  # URL to the resource(s)
     lifetime=7,  # seven days cache lifetime
