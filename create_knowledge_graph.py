@@ -1,3 +1,4 @@
+import sys
 from biocypher import BioCypher, FileDownload
 from template_package.adapters.example_adapter import (
     ExampleAdapter,
@@ -20,7 +21,7 @@ resource = FileDownload(
     lifetime=7,  # seven days cache lifetime
 )
 paths = bc.download(resource)  # Downloads to '.cache' by default
-print(paths)
+print(paths, file=sys.stderr)
 # You can use the list of paths returned to read the resource into your adapter
 
 # Choose node types to include in the knowledge graph.
@@ -63,7 +64,9 @@ bc.write_nodes(adapter.get_nodes())
 bc.write_edges(adapter.get_edges())
 
 # Write admin import statement
-bc.write_import_call()
+import_file = bc.write_import_call()
 
 # Print summary
 bc.summary()
+
+print(import_file)
